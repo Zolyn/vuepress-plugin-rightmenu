@@ -1,0 +1,23 @@
+{
+    "name": "@zolyn/vuepress-plugin-rightmenu",
+    "version": "0.0.1-alpha.1",
+    "main": "index.js",
+    "author": "Zorin",
+    "license": "MIT",
+    "scripts": {
+        "lint": "eslint ./*.js ./src/*.js ./src/*.vue",
+        "format": "prettier --write ./*.js ./src/*.js ./*.json ./src/*.vue"
+    },
+    "devDependencies": {
+        "babel-eslint": "^10.1.0",
+        "eslint": "^7.23.0",
+        "eslint-config-alloy": "^3.10.0",
+        "eslint-plugin-vue": "^7.8.0",
+        "prettier": "^2.2.1",
+        "vue-eslint-parser": "^7.6.0"
+    },
+    "repository": "https://github.com/Zolyn/vuepress-plugin-rightmenu",
+    "dependencies": {
+        "vuetify": "^2.4.9"
+    }
+}
