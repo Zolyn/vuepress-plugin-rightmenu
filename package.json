@@ -1,12 +1,12 @@
 {
     "name": "@zolyn/vuepress-plugin-rightmenu",
-    "version": "0.0.1-alpha.7",
+    "version": "0.0.1-alpha.8",
     "main": "index.js",
     "author": "Zorin",
     "license": "MIT",
     "scripts": {
         "lint": "eslint ./*.js ./src/*.js ./src/*.vue",
-        "format": "prettier --write ./*.js ./src/*.js ./*.json ./src/*.vue"
+        "format": "prettier --write ./*.js ./src/*.js ./*.json ./src/*.vue ./src/test/*.html"
     },
     "devDependencies": {
         "babel-eslint": "^10.1.0",

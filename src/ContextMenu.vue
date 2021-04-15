@@ -11,7 +11,17 @@
             :close-on-content-click="closeOnContentClick"
         >
             <v-list>
-                <v-list-item v-for="(item, index) in items" :key="index">
+                <v-list-item>
+                    <v-row align="center" dense justify="center">
+                        <v-col v-for="(item, index) in icons" :key="item.icon + index">
+                            <v-hover v-slot="{ hover }">
+                                <v-icon v-text="item.icon" :class="{ 'on-hover': hover }" @click="item.handler"></v-icon>
+                            </v-hover>
+                        </v-col>
+                    </v-row>
+                </v-list-item>
+                <v-divider></v-divider>
+                <v-list-item @click="logItem(item.title)" v-for="(item, index) in items" :key="index">
                     <v-list-item-title>{{ item.title }}</v-list-item-title>
                 </v-list-item>
             </v-list>
@@ -27,6 +37,32 @@ export default {
             xPos: 0,
             yPos: 0,
             items: [{ title: 'Test 1' }, { title: 'Test 2' }, { title: 'Test 3' }, { title: 'Test 4' }],
+            icons: [
+                {
+                    icon: 'mdi-arrow-left',
+                    handler() {
+                        this.$router.go(-1);
+                    }
+                },
+                {
+                    icon: 'mdi-refresh',
+                    handler() {
+                        window.location.reload();
+                    }
+                },
+                {
+                    icon: 'mdi-home',
+                    handler() {
+                        this.$router.push('/');
+                    }
+                },
+                {
+                    icon: 'mdi-arrow-right',
+                    handler() {
+                        this.$router.go(1);
+                    }
+                }
+            ],
             closeOnClick: false,
             closeOnContentClick: false,
         };
@@ -62,4 +98,7 @@ export default {
 #context-menu
     .v-application--wrap
         min-height 0
+    .on-hover
+        color: skyblue
+        transition .3s
 </style>
