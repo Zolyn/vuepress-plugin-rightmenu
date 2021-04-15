@@ -15,7 +15,11 @@
                     <v-row align="center" dense justify="center">
                         <v-col v-for="(item, index) in icons" :key="item.icon + index">
                             <v-hover v-slot="{ hover }">
-                                <v-icon v-text="item.icon" :class="{ 'on-hover': hover }" @click="item.handler"></v-icon>
+                                <v-icon
+                                    v-text="item.icon"
+                                    :class="{ 'on-hover': hover }"
+                                    @click="item.handler"
+                                ></v-icon>
                             </v-hover>
                         </v-col>
                     </v-row>
@@ -42,26 +46,26 @@ export default {
                     icon: 'mdi-arrow-left',
                     handler() {
                         this.$router.go(-1);
-                    }
+                    },
                 },
                 {
                     icon: 'mdi-refresh',
                     handler() {
                         window.location.reload();
-                    }
+                    },
                 },
                 {
                     icon: 'mdi-home',
                     handler() {
                         this.$router.push('/');
-                    }
+                    },
                 },
                 {
                     icon: 'mdi-arrow-right',
                     handler() {
                         this.$router.go(1);
-                    }
-                }
+                    },
+                },
             ],
             closeOnClick: false,
             closeOnContentClick: false,
@@ -89,6 +93,9 @@ export default {
             this.$nextTick(() => {
                 this.showMenu = true;
             });
+        },
+        logItem(title) {
+            alert(title);
         },
     },
 };
