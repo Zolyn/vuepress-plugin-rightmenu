@@ -148,7 +148,7 @@ export default {
             });
         },
         getItemList(e) {
-            const items = '';
+            const items = [];
             const elements = e.path;
             const imgPlans = [
                 {
@@ -188,7 +188,7 @@ export default {
                     break;
                 }
             }
-            if (!items) {
+            if (!items.length) {
                 items.push(...this.normalActions);
             }
             this.itemList = items;
