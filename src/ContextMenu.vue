@@ -14,7 +14,7 @@
             <v-list>
                 <v-list-item>
                     <v-row align="center" dense justify="center">
-                        <v-col v-for="(item, index) in icons" :key="item.icon + index">
+                        <v-col v-for="(item, index) in iconBar" :key="item.icon + index">
                             <v-hover v-slot="{ hover }">
                                 <v-icon
                                     v-text="item.icon"
@@ -25,12 +25,12 @@
                         </v-col>
                     </v-row>
                 </v-list-item>
-                <v-divider></v-divider>
                 <v-row dense align="start" justify="center">
                     <v-col>
-                        <v-list-item @click="logItem(item.title)" v-for="(item, index) in items.current" :key="items.type + index">
-                            <v-list-item-title>{{ item.title }}</v-list-item-title>
-                        </v-list-item>
+                        <v-divider></v-divider>
+                        <menu-item :list="itemList" name="itemList"></menu-item>
+                        <v-divider></v-divider>
+                        <menu-item :list="stickyActions" name="sticky"></menu-item>
                     </v-col>
                 </v-row>
             </v-list>
@@ -39,21 +39,21 @@
 </template>
 
 <script>
+import MenuItem from "./MenuItem";
+
 export default {
+    components: {
+        MenuItem
+    },
     data() {
         return {
             that: this,
             showMenu: false,
             xPos: 0,
             yPos: 0,
-            items: {
-                type: 'normal',
-                normal: [{title: 'Test 1'}, {title: 'Test 2'}, {title: 'Test 3'}, {title: 'Test 4'}],
-                text: [{title: 'Text 1'}, {title: 'Text 2'}, {title: 'Text 3'}, {title: 'Text 4'}],
-                image: [{title: 'Img 1'}, {title: 'Img 2'}, {title: 'Img 3'}, {title: 'Img 4'}],
-                current: this.normal
-            },
-            icons: [
+            clickListener: false,
+            itemList: [],
+            iconBar: [
                 {
                     icon: 'mdi-arrow-left',
                     handler() {
@@ -81,7 +81,43 @@ export default {
                     },
                 },
             ],
-            clickListener: false
+            eventActions: {
+                link: [
+                    {
+                        title: 'Open in new tab'
+                    },
+                    {
+                        title: 'Copy link'
+                    }
+                ],
+                image: [
+                    {
+                        title: 'Open image in new tab'
+                    },
+                    {
+                        title: 'Copy image URL'
+                    }
+                ]
+            },
+            normalActions: [
+                {
+                    title: 'Default 1'
+                },
+                {
+                    title: 'Default 2'
+                },
+                {
+                    title: 'Default 3'
+                },
+                {
+                    title: 'Default 4'
+                }
+            ],
+            stickyActions: [
+                {
+                    title: 'Switch mode'
+                }
+            ]
         }
     },
     mounted() {
@@ -97,26 +133,65 @@ export default {
             console.log(`DEBUG: Initialized. [${Math.floor(Math.random() * 100)}]`);
         });
     },
+    beforeDestroy(){
+        alert('Are you sure?');
+    },
     methods: {
         handleClick(e) {
-            let items = this.items;
             e.preventDefault();
             this.showMenu = false;
             this.xPos = e.clientX;
             this.yPos = e.clientY;
-            if (e.target.innerText) {
-                items.type = 'text';
-                items.current = items.text;
-            } else if (e.target.nodeName === 'IMG') {
-                items.type = 'image';
-                items.current = items.image;
-            } else {
-                items.type = 'normal';
-                items.current = items.normal;
-            }
+            this.getItemList(e);
             this.$nextTick(() => {
                 this.showMenu = true;
             });
+        },
+        getItemList(e) {
+            const items = '';
+            const elements = e.path;
+            const imgPlans = [
+                {
+                    fn() {
+                        return elements[0].currentSrc;
+                    }
+                },
+                {
+                    fn() {
+                        return elements[0].firstChild.currentSrc;
+                    }
+                },
+                {
+                    fn() {
+                        let img = '';
+                        for (let i = 0;i < 3;i += 1) {
+                            img = elements[i].style['background-image'].split('"')[1];
+                            if (img) {
+                                break;
+                            }
+                        }
+                        return img;
+                    }
+                }
+            ]
+            for (const val of imgPlans) {
+                const result = val.fn();
+                if (result) {
+                    items.push(...this.eventActions.image);
+                    break;
+                }
+            }
+            for (let i = 0;i < 5;i += 1){
+                const link = elements[i].href;
+                if (link) {
+                    items.push(...this.eventActions.link);
+                    break;
+                }
+            }
+            if (!items) {
+                items.push(...this.normalActions);
+            }
+            this.itemList = items;
         },
         logItem(title) {
             alert(title);
@@ -132,4 +207,10 @@ export default {
     .on-hover
         color: skyblue
         transition .3s
+    .theme--dark.v-list
+        background #282828 !important
+    .theme--dark.v-list-item:not(.v-list-item--active):not(.v-list-item--disabled)
+        color #b4b4b4 !important
+    .theme--dark.v-icon
+        color #b4b4b4 !important
 </style>

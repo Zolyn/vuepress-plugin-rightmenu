@@ -61,8 +61,12 @@
                 data: {
                     that: this,
                     showMenu: false,
-                    xPos: 0,
-                    yPos: 0,
+                    : 0,
+                    y: 0,
+                    clickListener: false,
+                    eventActions: [
+
+                    ],
                     items: {
                         type: 'normal',
                         normal: [{ title: 'Test 1' }, { title: 'Test 2' }, { title: 'Test 3' }, { title: 'Test 4' }],
@@ -70,7 +74,7 @@
                         image: [{ title: 'Img 1' }, { title: 'Img 2' }, { title: 'Img 3' }, { title: 'Img 4' }],
                         current: this.normal
                     },
-                    icons: [
+                    iconsBar: [
                         {
                             icon: 'mdi-arrow-left',
                             handler() {
@@ -98,7 +102,6 @@
                             },
                         },
                     ],
-                    clickListener: false
                 },
                 mounted() {
                     this.$nextTick(() => {
