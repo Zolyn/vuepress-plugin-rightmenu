@@ -133,9 +133,6 @@ export default {
             console.log(`DEBUG: Initialized. [${Math.floor(Math.random() * 100)}]`);
         });
     },
-    beforeDestroy(){
-        alert('Are you sure?');
-    },
     methods: {
         handleClick(e) {
             e.preventDefault();
@@ -205,12 +202,15 @@ export default {
     .v-application--wrap
         min-height 0
     .on-hover
-        color: skyblue
+        color: skyblue !important
         transition .3s
     .theme--dark.v-list
-        background #282828 !important
+        background #282828
     .theme--dark.v-list-item:not(.v-list-item--active):not(.v-list-item--disabled)
         color #b4b4b4 !important
     .theme--dark.v-icon
-        color #b4b4b4 !important
+        color #b4b4b4
+
+#context-menu-item.theme--dark.v-application
+    background #282828
 </style>
