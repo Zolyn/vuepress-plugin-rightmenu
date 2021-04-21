@@ -6,9 +6,8 @@
     "author": "Zorin",
     "main": "index.js",
     "scripts": {
-        "lint": "eslint ./*.js ./src/*.js ./src/*.vue",
-        "format": "prettier --write ./*.js ./.*.js ./src/*.js ./*.json ./src/*.vue ./src/test/*.html",
-        "sort": "sort-package-json",
+        "pub": "npm publish",
+        "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
         "prepare": "husky install"
     },
     "dependencies": {
@@ -19,6 +18,7 @@
         "@commitlint/cli": "^12.1.1",
         "@commitlint/config-conventional": "^12.1.1",
         "babel-eslint": "^10.1.0",
+        "conventional-changelog-cli": "^2.1.1",
         "eslint": "^7.24.0",
         "eslint-config-alloy": "^3.10.0",
         "eslint-plugin-vue": "^7.9.0",
