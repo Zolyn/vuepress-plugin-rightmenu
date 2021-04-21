@@ -11,10 +11,6 @@
         "sort": "sort-package-json",
         "prepare": "husky install"
     },
-    "dependencies": {
-        "@mdi/font": "^5.9.55",
-        "vuetify": "^2.4.11"
-    },
     "devDependencies": {
         "@commitlint/cli": "^12.1.1",
         "@commitlint/config-conventional": "^12.1.1",
@@ -26,5 +22,9 @@
         "prettier": "^2.2.1",
         "sort-package-json": "^1.49.0",
         "vue-eslint-parser": "^7.6.0"
+    },
+    "dependencies": {
+        "@mdi/font": "^5.9.55",
+        "vuetify": "^2.4.11"
     }
 }
