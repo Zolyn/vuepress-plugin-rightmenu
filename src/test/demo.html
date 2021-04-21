@@ -15,15 +15,15 @@
             <div>Hello Vue!</div>
             <v-app id="context-menu">
                 <v-menu
-                        v-model="showMenu"
-                        transition="slide-x-transition"
-                        min-width="160px"
-                        offset-y
-                        absolute
-                        :position-x="xPos"
-                        :position-y="yPos"
-                        :close-on-click="clickListener"
-                        :close-on-content-click="clickListener"
+                    v-model="showMenu"
+                    transition="slide-x-transition"
+                    min-width="160px"
+                    offset-y
+                    absolute
+                    :position-x="xPos"
+                    :position-y="yPos"
+                    :close-on-click="clickListener"
+                    :close-on-content-click="clickListener"
                 >
                     <v-list>
                         <v-list-item>
@@ -31,9 +31,9 @@
                                 <v-col v-for="(item, index) in icons" :key="item.icon + index">
                                     <v-hover v-slot="{ hover }">
                                         <v-icon
-                                                v-text="item.icon"
-                                                :class="{ 'on-hover': hover }"
-                                                @click="item.handler.call(that)"
+                                            v-text="item.icon"
+                                            :class="{ 'on-hover': hover }"
+                                            @click="item.handler.call(that)"
                                         ></v-icon>
                                     </v-hover>
                                 </v-col>
@@ -42,7 +42,11 @@
                         <v-divider></v-divider>
                         <v-row dense align="start" justify="center">
                             <v-col>
-                                <v-list-item @click="logItem(item.title)" v-for="(item, index) in items.current" :key="items.type + index">
+                                <v-list-item
+                                    @click="logItem(item.title)"
+                                    v-for="(item, index) in items.current"
+                                    :key="items.type + index"
+                                >
                                     <v-list-item-title>{{ item.title }}</v-list-item-title>
                                 </v-list-item>
                             </v-col>

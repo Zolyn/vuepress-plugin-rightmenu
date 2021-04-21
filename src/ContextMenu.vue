@@ -17,9 +17,9 @@
                         <v-col v-for="(item, index) in iconBar" :key="item.icon + index">
                             <v-hover v-slot="{ hover }">
                                 <v-icon
-                                    v-text="item.icon"
                                     :class="{ 'on-hover': hover }"
                                     @click="item.handler.call(that)"
+                                    v-text="item.icon"
                                 ></v-icon>
                             </v-hover>
                         </v-col>
@@ -35,15 +35,16 @@
                 </v-row>
             </v-list>
         </v-menu>
+        <input id="clipboard-container" readonly :value="clipboard" />
     </v-app>
 </template>
 
 <script>
-import MenuItem from "./MenuItem";
+import MenuItem from './MenuItem';
 
 export default {
     components: {
-        MenuItem
+        MenuItem,
     },
     data() {
         return {
@@ -52,6 +53,9 @@ export default {
             xPos: 0,
             yPos: 0,
             clickListener: false,
+            currentLink: '',
+            currentImage: '',
+            clipboard: '',
             itemList: [],
             iconBar: [
                 {
@@ -84,41 +88,47 @@ export default {
             eventActions: {
                 link: [
                     {
-                        title: 'Open in new tab'
+                        title: 'Open in new tab',
+                        handler() {
+                            window.open(this.currentLink);
+                        },
                     },
                     {
-                        title: 'Copy link'
-                    }
+                        title: 'Copy link',
+                    },
                 ],
                 image: [
                     {
-                        title: 'Open image in new tab'
+                        title: 'Open image in new tab',
+                        handler() {
+                            window.open(this.currentImage);
+                        },
                     },
                     {
-                        title: 'Copy image URL'
-                    }
-                ]
+                        title: 'Copy image URL',
+                    },
+                ],
             },
             normalActions: [
                 {
-                    title: 'Default 1'
+                    title: 'Default 1',
                 },
                 {
-                    title: 'Default 2'
+                    title: 'Default 2',
                 },
                 {
-                    title: 'Default 3'
+                    title: 'Default 3',
                 },
                 {
-                    title: 'Default 4'
-                }
+                    title: 'Default 4',
+                },
             ],
             stickyActions: [
                 {
-                    title: 'Switch mode'
-                }
-            ]
-        }
+                    title: 'Switch mode',
+                },
+            ],
+        };
     },
     mounted() {
         this.$nextTick(() => {
@@ -151,36 +161,38 @@ export default {
                 {
                     fn() {
                         return elements[0].currentSrc;
-                    }
+                    },
                 },
                 {
                     fn() {
-                        return elements[0].firstChild.currentSrc;
-                    }
+                        return elements[0].children[0].currentSrc;
+                    },
                 },
                 {
                     fn() {
                         let img = '';
-                        for (let i = 0;i < 3;i += 1) {
+                        for (let i = 0; i < 3; i += 1) {
                             img = elements[i].style['background-image'].split('"')[1];
                             if (img) {
                                 break;
                             }
                         }
                         return img;
-                    }
-                }
-            ]
+                    },
+                },
+            ];
             for (const val of imgPlans) {
                 const result = val.fn();
                 if (result) {
+                    this.currentImage = result;
                     items.push(...this.eventActions.image);
                     break;
                 }
             }
-            for (let i = 0;i < 5;i += 1){
+            for (let i = 0; i < 5; i += 1) {
                 const link = elements[i].href;
                 if (link) {
+                    this.currentLink = link;
                     items.push(...this.eventActions.link);
                     break;
                 }
@@ -189,6 +201,11 @@ export default {
                 items.push(...this.normalActions);
             }
             this.itemList = items;
+        },
+        copy() {
+            const container = document.querySelector('#clipboard-container');
+            container.select();
+            document.execCommand('copy');
         },
         logItem(title) {
             alert(title);
@@ -210,6 +227,8 @@ export default {
         color #b4b4b4 !important
     .theme--dark.v-icon
         color #b4b4b4
+    #clipboard-container
+        display none
 
 #context-menu-item.theme--dark.v-application
     background #282828

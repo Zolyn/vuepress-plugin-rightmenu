@@ -11,16 +11,14 @@ export default {
     props: {
         list: {
             type: Array,
-            required: true
+            required: true,
         },
         name: {
             type: String,
-            required: true
-        }
-    }
-}
+            required: true,
+        },
+    },
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
