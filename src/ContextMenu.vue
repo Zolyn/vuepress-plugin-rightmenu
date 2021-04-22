@@ -176,7 +176,9 @@ export default {
                 },
                 {
                     fn() {
-                        return elements[0].children[0].currentSrc;
+                        if (elements[0].children.length) {
+                            return elements[0].children[0].currentSrc;
+                        }
                     },
                 },
                 {
