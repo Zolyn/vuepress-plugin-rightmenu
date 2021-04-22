@@ -28,9 +28,9 @@
                 <v-row dense align="start" justify="center">
                     <v-col>
                         <v-divider></v-divider>
-                        <menu-item :list="itemList" name="itemList"></menu-item>
+                        <menu-item :parent="that" :list="itemList" name="itemList"></menu-item>
                         <v-divider></v-divider>
-                        <menu-item :list="stickyActions" name="sticky"></menu-item>
+                        <menu-item :parent="that" :list="stickyActions" name="sticky"></menu-item>
                     </v-col>
                 </v-row>
             </v-list>
@@ -95,6 +95,10 @@ export default {
                     },
                     {
                         title: 'Copy link',
+                        handler() {
+                            this.clipboard = this.currentLink;
+                            this.copy();
+                        },
                     },
                 ],
                 image: [
@@ -106,6 +110,10 @@ export default {
                     },
                     {
                         title: 'Copy image URL',
+                        handler() {
+                            this.clipboard = this.currentImage;
+                            this.copy();
+                        },
                     },
                 ],
             },
@@ -126,6 +134,9 @@ export default {
             stickyActions: [
                 {
                     title: 'Switch mode',
+                    handler() {
+                        this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
+                    },
                 },
             ],
         };
