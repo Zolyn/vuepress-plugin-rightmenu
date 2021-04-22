@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-alpha.6](https://github.com/Zolyn/vuepress-plugin-rightmenu/compare/v1.0.0-alpha.5...v1.0.0-alpha.6) (2021-04-22)
+
+### Tests
+
+-   image detection ([12272ae](https://github.com/Zolyn/vuepress-plugin-rightmenu/commit/12272aeb42f333b44efd505d6519c23c3a773397))
+
 ## 1.0.0-alpha.5 (2021-04-22)
 
 ### Bug Fixes
