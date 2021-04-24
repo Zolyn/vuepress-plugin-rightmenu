@@ -2,6 +2,7 @@
     <v-app id="context-menu">
         <v-menu
             v-model="showMenu"
+            class="rounded-xl"
             transition="slide-x-transition"
             min-width="160px"
             offset-y
@@ -135,7 +136,13 @@ export default {
                 {
                     title: 'Switch mode',
                     handler() {
-                        this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
+                        let isDark = this.$vuetify.theme.dark;
+                        isDark = !isDark;
+                        if (isDark) {
+                            document.body.setAttribute('data-theme', 'night');
+                        } else {
+                            document.body.setAttribute('data-theme', 'light');
+                        }
                     },
                 },
             ],
@@ -220,9 +227,6 @@ export default {
             container.select();
             document.execCommand('copy');
         },
-        logItem(title) {
-            alert(title);
-        },
     },
 };
 </script>
@@ -241,7 +245,7 @@ export default {
     .theme--dark.v-icon
         color #b4b4b4
     #clipboard-container
-        display none
+        height 0
 
 #context-menu-item.theme--dark.v-application
     background #282828
