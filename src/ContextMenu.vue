@@ -2,7 +2,7 @@
     <v-app id="context-menu">
         <v-menu
             v-model="showMenu"
-            class="rounded-xl"
+            rounded="xl"
             transition="slide-x-transition"
             min-width="160px"
             offset-y
@@ -58,7 +58,7 @@ export default {
             currentImage: '',
             clipboard: '',
             itemList: [],
-            iconBar: [
+            iconBar: ICON_BAR || [
                 {
                     icon: 'mdi-arrow-left',
                     handler() {
@@ -86,7 +86,7 @@ export default {
                     },
                 },
             ],
-            eventActions: {
+            eventActions: EVENT_ACTIONS || {
                 link: [
                     {
                         title: 'Open in new tab',
@@ -122,7 +122,7 @@ export default {
                     },
                 ],
             },
-            normalActions: [
+            normalActions: NORMAL_ACTIONS || [
                 {
                     title: 'Default 1',
                 },
@@ -136,7 +136,7 @@ export default {
                     title: 'Default 4',
                 },
             ],
-            stickyActions: [
+            stickyActions: STICKY_ACTIONS || [
                 {
                     title: 'Switch mode',
                     handler() {
