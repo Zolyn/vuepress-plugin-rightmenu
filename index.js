@@ -2,10 +2,7 @@ const { resolve } = require('path');
 module.exports = (opts) => ({
     define() {
         return {
-            ICON_BAR: opts.iconBar,
-            NORMAL_ACTIONS: opts.normalActions,
-            EVENT_ACTIONS: opts.eventActions,
-            STICKY_ACTIONS: opts.stickyActions,
+            CONFIG_FILE: opts.config,
         };
     },
     name: '@Zolyn/vuepress-plugin-rightmenu',

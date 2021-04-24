@@ -41,6 +41,7 @@
 </template>
 
 <script>
+const config = require(CONFIG_FILE);
 import MenuItem from './MenuItem';
 
 export default {
@@ -58,7 +59,7 @@ export default {
             currentImage: '',
             clipboard: '',
             itemList: [],
-            iconBar: ICON_BAR || [
+            iconBar: config.iconBar || [
                 {
                     icon: 'mdi-arrow-left',
                     handler() {
@@ -86,7 +87,7 @@ export default {
                     },
                 },
             ],
-            eventActions: EVENT_ACTIONS || {
+            eventActions: config.eventActions || {
                 link: [
                     {
                         title: 'Open in new tab',
@@ -122,7 +123,7 @@ export default {
                     },
                 ],
             },
-            normalActions: NORMAL_ACTIONS || [
+            normalActions: config.normalActions || [
                 {
                     title: 'Default 1',
                 },
@@ -136,7 +137,7 @@ export default {
                     title: 'Default 4',
                 },
             ],
-            stickyActions: STICKY_ACTIONS || [
+            stickyActions: config.stickyActions || [
                 {
                     title: 'Switch mode',
                     handler() {
