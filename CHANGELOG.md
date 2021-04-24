@@ -4,10 +4,13 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [1.0.0-rc.0](https://github.com/Zolyn/vuepress-plugin-rightmenu/compare/v1.0.0-alpha.6...v1.0.0-rc.0) (2021-04-24)
 
+### Features
+
+-   switch mode ([c883557](https://github.com/Zolyn/vuepress-plugin-rightmenu/commit/c88355737de681a5bcf26f3b8754b58dc8ad55e3))
 
 ### Bug Fixes
 
-* copy button && feat: switch mode ([c883557](https://github.com/Zolyn/vuepress-plugin-rightmenu/commit/c88355737de681a5bcf26f3b8754b58dc8ad55e3))
+-   copy button ([c883557](https://github.com/Zolyn/vuepress-plugin-rightmenu/commit/c88355737de681a5bcf26f3b8754b58dc8ad55e3))
 
 ## [1.0.0-alpha.6](https://github.com/Zolyn/vuepress-plugin-rightmenu/compare/v1.0.0-alpha.5...v1.0.0-alpha.6) (2021-04-22)
 
