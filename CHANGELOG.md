@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-rc.3](https://github.com/Zolyn/vuepress-plugin-rightmenu/compare/v1.0.0-rc.2...v1.0.0-rc.3) (2021-04-24)
+
+
+### Bug Fixes
+
+* handler function is filtered in configuration ([4b11b96](https://github.com/Zolyn/vuepress-plugin-rightmenu/commit/4b11b9654273b260d211c246eb05ffb82fe6f714))
+
+
+### Styles
+
+* menu border-radius ([35c5c50](https://github.com/Zolyn/vuepress-plugin-rightmenu/commit/35c5c50b03274ade5246f62b2ffe5311ecdbba3e))
+
 ## [1.0.0-rc.2](https://github.com/Zolyn/vuepress-plugin-rightmenu/compare/v1.0.0-rc.1...v1.0.0-rc.2) (2021-04-24)
 
 
