@@ -98,7 +98,9 @@ export default {
                         title: 'Copy link',
                         handler() {
                             this.clipboard = this.currentLink;
-                            this.copy();
+                            this.$nextTick(() => {
+                                this.copy();
+                            });
                         },
                     },
                 ],
@@ -113,7 +115,9 @@ export default {
                         title: 'Copy image URL',
                         handler() {
                             this.clipboard = this.currentImage;
-                            this.copy();
+                            this.$nextTick(() => {
+                                this.copy();
+                            });
                         },
                     },
                 ],
@@ -136,10 +140,9 @@ export default {
                 {
                     title: 'Switch mode',
                     handler() {
-                        let isDark = this.$vuetify.theme.dark;
-                        isDark = !isDark;
-                        if (isDark) {
-                            document.body.setAttribute('data-theme', 'night');
+                        this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
+                        if (this.$vuetify.theme.dark) {
+                            document.body.setAttribute('data-theme', 'dark');
                         } else {
                             document.body.setAttribute('data-theme', 'light');
                         }
