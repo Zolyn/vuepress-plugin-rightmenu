@@ -2,7 +2,7 @@
     <v-app id="context-menu">
         <v-menu
             v-model="showMenu"
-            rounded="xl"
+            rounded="lg"
             transition="slide-x-transition"
             min-width="160px"
             offset-y
