@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-rc.6](https://github.com/Zolyn/vuepress-plugin-rightmenu/compare/v1.0.0-rc.5...v1.0.0-rc.6) (2021-04-27)
+
+
+### Bug Fixes
+
+* theme mode is not applied in next page ([6663439](https://github.com/Zolyn/vuepress-plugin-rightmenu/commit/66634397751a24be90e017da21f9b4c1411e680f))
+
+
+### Styles
+
+* remove some global styles ([6de412f](https://github.com/Zolyn/vuepress-plugin-rightmenu/commit/6de412f3594a269f48172939c9ee77cb5fd011dc))
+
 ## [1.0.0-rc.5](https://github.com/Zolyn/vuepress-plugin-rightmenu/compare/v1.0.0-rc.4...v1.0.0-rc.5) (2021-04-27)
 
 
