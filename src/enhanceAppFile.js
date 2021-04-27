@@ -1,6 +1,6 @@
 import Vuetify from 'vuetify';
 import 'vuetify/dist/vuetify.css';
-import '@mdi/font/css/materialdesignicons.min.css';
+// import '@mdi/font/css/materialdesignicons.min.css';
 
 import ContextMenu from './ContextMenu';
 
