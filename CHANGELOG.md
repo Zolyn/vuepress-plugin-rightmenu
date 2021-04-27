@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-rc.5](https://github.com/Zolyn/vuepress-plugin-rightmenu/compare/v1.0.0-rc.4...v1.0.0-rc.5) (2021-04-27)
+
+
+### Styles
+
+* remove css reset ([9e42e03](https://github.com/Zolyn/vuepress-plugin-rightmenu/commit/9e42e03682e5a3459cc11498b82dde3416fd3b32))
+
 ## [1.0.0-rc.4](https://github.com/Zolyn/vuepress-plugin-rightmenu/compare/v1.0.0-rc.3...v1.0.0-rc.4) (2021-04-27)
 
 
