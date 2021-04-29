@@ -1,4 +1,5 @@
 <template>
+    <!-- TODO: Refactor components -->
     <v-app id="context-menu">
         <v-menu
             v-model="showMenu"
