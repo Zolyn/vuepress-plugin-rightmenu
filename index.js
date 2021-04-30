@@ -7,5 +7,5 @@ module.exports = (opts) => ({
     },
     name: '@Zolyn/vuepress-plugin-rightmenu',
     enhanceAppFiles: resolve(__dirname, './src/enhanceAppFile.js'),
-    globalUIComponents: 'ContextMenu',
+    globalUIComponents: 'MenuLoader',
 });
