@@ -43,7 +43,7 @@
 
 <script>
 const config = require(CONFIG_FILE);
-import MenuItem from './MenuItem';
+import MenuItem from '../components/MenuItem';
 
 export default {
     components: {

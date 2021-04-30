@@ -1,11 +1,8 @@
-import Vuetify from 'vuetify';
-import './styles/vuetify.modified.min.css';
-import '@mdi/font/css/materialdesignicons.min.css';
+import MenuLoader from './MenuLoader';
 
-import ContextMenu from './ContextMenu';
-
-export default ({ Vue, options }) => {
-    Vue.use(Vuetify);
-    options.vuetify = new Vuetify({});
-    Vue.component('ContextMenu', ContextMenu);
+export default ({ Vue }) => {
+    import('keen-ui').then((module) => {
+        Vue.use(module);
+        Vue.component('MenuLoader', MenuLoader);
+    });
 };
