@@ -22,5 +22,5 @@ module.exports = (opts) => ({
     },
     name: '@Zolyn/vuepress-plugin-rightmenu',
     enhanceAppFiles: getEnhanceApp(opts.type),
-    globalUIComponents: 'MenuLoader',
+    globalUIComponents: 'ContextMenu',
 });
