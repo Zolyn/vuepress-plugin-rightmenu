@@ -16,7 +16,7 @@
     },
     "dependencies": {
         "@mdi/font": "^5.9.55",
-        "vue-material": "^1.0.0-beta-15"
+        "muse-ui": "^3.0.2"
     },
     "devDependencies": {
         "@commitlint/cli": "^12.1.1",
