@@ -16,7 +16,11 @@
             <v-list>
                 <v-list-item>
                     <div class="pure-g justify-center align-center">
-                        <div v-for="(item, index) in iconBar" :key="item.icon + index" class="pure-u">
+                        <div
+                            v-for="(item, index) in iconBar"
+                            :key="item.icon + index"
+                            :class="`pure-u-1-${iconBar.length}`"
+                        >
                             <v-hover v-slot="{ hover }" class="pure-gutter">
                                 <v-icon
                                     :class="{ 'on-hover': hover }"
@@ -254,7 +258,9 @@ export default {
     #clipboard-container
         height 0
     .pure-gutter
-        padding 1em
+        padding 4px
+    .pure-g
+        width 100%
 
 #context-menu-item.theme--dark.v-application
     background #282828

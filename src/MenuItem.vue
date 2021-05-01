@@ -1,9 +1,9 @@
 <template>
     <!-- TODO: Refactor components -->
     <v-app id="context-menu-item">
-        <div class="pure-g justify-center align-start">
-            <div v-for="(item, index) in list" :key="name + index" class="pure-u" @click="item.handler.call(parent)">
-                <v-list-item>
+        <div v-for="(item, index) in list" :key="name + index" class="pure-g justify-start align-center">
+            <div class="pure-u-1-1">
+                <v-list-item @click="item.handler.call(parent)">
                     <v-list-item-title>
                         {{ item.title }}
                     </v-list-item-title>
