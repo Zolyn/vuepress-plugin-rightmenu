@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0-alpha.4](https://github.com/Zolyn/vuepress-plugin-rightmenu/compare/v1.1.0-alpha.3...v1.1.0-alpha.4) (2021-05-01)
+
+
+### Bug Fixes
+
+* global components declaration again ([c9f7110](https://github.com/Zolyn/vuepress-plugin-rightmenu/commit/c9f711058be65a5fa40122d9fcd4797f273b3389))
+
 ## [1.1.0-alpha.3](https://github.com/Zolyn/vuepress-plugin-rightmenu/compare/v1.1.0-alpha.2...v1.1.0-alpha.3) (2021-05-01)
 
 
