@@ -1,19 +1,5 @@
 const { resolve } = require('path');
 
-function getEnhanceApp(type) {
-    let enhanceAppPath = '';
-    switch (type) {
-        case 'Antd': {
-            enhanceAppPath = resolve(__dirname, './src/enhanceAppFiles/Antd.js');
-            break;
-        }
-        default: {
-            break;
-        }
-    }
-    return enhanceAppPath;
-}
-
 module.exports = (opts) => ({
     define() {
         return {
@@ -21,6 +7,6 @@ module.exports = (opts) => ({
         };
     },
     name: '@Zolyn/vuepress-plugin-rightmenu',
-    enhanceAppFiles: getEnhanceApp(opts.type),
+    enhanceAppFiles: resolve(__dirname, './src/enhanceApp.js'),
     globalUIComponents: 'ContextMenu',
 });
