@@ -15,26 +15,22 @@
         >
             <v-list>
                 <v-list-item>
-                    <v-row align="center" dense justify="center">
-                        <v-col v-for="(item, index) in iconBar" :key="item.icon + index">
-                            <v-hover v-slot="{ hover }">
+                    <div class="pure-g justify-center align-center">
+                        <div v-for="(item, index) in iconBar" :key="item.icon + index" class="pure-u">
+                            <v-hover v-slot="{ hover }" class="pure-gutter">
                                 <v-icon
                                     :class="{ 'on-hover': hover }"
                                     @click="item.handler.call(that)"
                                     v-text="item.icon"
                                 ></v-icon>
                             </v-hover>
-                        </v-col>
-                    </v-row>
+                        </div>
+                    </div>
                 </v-list-item>
-                <v-row dense align="start" justify="center">
-                    <v-col>
-                        <v-divider></v-divider>
-                        <menu-item :parent="that" :list="itemList" name="itemList"></menu-item>
-                        <v-divider></v-divider>
-                        <menu-item :parent="that" :list="stickyActions" name="sticky"></menu-item>
-                    </v-col>
-                </v-row>
+                <v-divider></v-divider>
+                <menu-item :parent="that" :list="itemList" name="itemList"></menu-item>
+                <v-divider></v-divider>
+                <menu-item :parent="that" :list="stickyActions" name="sticky"></menu-item>
             </v-list>
         </v-menu>
         <input id="clipboard-container" readonly :value="clipboard" />
@@ -239,6 +235,10 @@ export default {
 </script>
 
 <style lang="stylus">
+@import "https://unpkg.com/purecss@2.0.6/build/base-min.css"
+@import "https://unpkg.com/purecss@2.0.6/build/grids-min.css"
+@import "https://unpkg.com/purecss@2.0.6/build/grids-responsive-min.css"
+
 #context-menu
     .v-application--wrap
         min-height 0
@@ -253,6 +253,8 @@ export default {
         color #b4b4b4
     #clipboard-container
         height 0
+    .pure-gutter
+        padding 1em
 
 #context-menu-item.theme--dark.v-application
     background #282828
