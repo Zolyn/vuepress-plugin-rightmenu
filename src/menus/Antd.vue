@@ -1,18 +1,13 @@
 <template>
-    <mu-menu :open.sync="showMenu" :style="menuStyle">
-        <template v-slot:content>
-            <mu-list>
-                <mu-list-item button>
-                    <mu-list-item-action v-for="(item, index) in iconBar" :key="item.icon + index">
-                        <mu-icon v-model="item.icon"></mu-icon>
-                    </mu-list-item-action>
-                </mu-list-item>
-                <mu-list-item v-for="(item, index) in normalActions" :key="'normal' + index">
-                    <mu-list-item-title>{{ item.title }}</mu-list-item-title>
-                </mu-list-item>
-            </mu-list>
+    <a-dropdown v-model="showMenu" :style="menuStyle">
+        <template v-slot:overlay>
+            <a-menu>
+                <a-menu-item v-for="(item, index) in normalActions" :key="'normal' + index">
+                    {{ item.title }}
+                </a-menu-item>
+            </a-menu>
         </template>
-    </mu-menu>
+    </a-dropdown>
 </template>
 
 <script>
@@ -21,24 +16,24 @@ export default {
         return {
             showMenu: false,
             menuStyle: {
-                top: 0,
-                left: 0,
+                top: '0px',
+                left: '0px',
             },
             iconBar: [
                 {
-                    icon: ':mdi-arrow-left',
+                    icon: 'mdi-arrow-left',
                     handler() {
                         this.$router.go(-1);
                     },
                 },
                 {
-                    icon: ':mdi-refresh',
+                    icon: 'mdi-refresh',
                     handler() {
                         window.location.reload();
                     },
                 },
                 {
-                    icon: ':mdi-home',
+                    icon: 'mdi-home',
                     handler() {
                         if (this.$route.path !== '/') {
                             this.$router.push('/');
@@ -46,7 +41,7 @@ export default {
                     },
                 },
                 {
-                    icon: ':mdi-arrow-right',
+                    icon: 'mdi-arrow-right',
                     handler() {
                         this.$router.go(1);
                     },
@@ -64,10 +59,11 @@ export default {
     methods: {
         handleRightClick(e) {
             e.preventDefault();
-            this.menuStyle.left = e.clientX;
-            this.menuStyle.top = e.clientY;
+            this.showMenu = false;
+            this.menuStyle.left = e.clientX + 'px';
+            this.menuStyle.top = e.clientY + 'px';
             this.$nextTick(() => {
-                this.open = !this.open;
+                this.showMenu = true;
             });
         },
     },

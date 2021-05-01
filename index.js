@@ -3,8 +3,8 @@ const { resolve } = require('path');
 function getEnhanceApp(type) {
     let enhanceAppPath = '';
     switch (type) {
-        case 'MuseUI': {
-            enhanceAppPath = resolve(__dirname, './src/enhanceAppFiles/MuseUI.js');
+        case 'Antd': {
+            enhanceAppPath = resolve(__dirname, './src/enhanceAppFiles/Antd.js');
             break;
         }
         default: {
