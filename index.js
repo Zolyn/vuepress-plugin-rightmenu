@@ -1,4 +1,19 @@
 const { resolve } = require('path');
+
+function getEnhanceApp(type) {
+    let enhanceAppPath = '';
+    switch (type) {
+        case 'VueMaterial': {
+            enhanceAppPath = resolve(__dirname, './src/enhanceAppFiles/VueMaterial.js');
+            break;
+        }
+        default: {
+            break;
+        }
+    }
+    return enhanceAppPath;
+}
+
 module.exports = (opts) => ({
     define() {
         return {
@@ -6,6 +21,6 @@ module.exports = (opts) => ({
         };
     },
     name: '@Zolyn/vuepress-plugin-rightmenu',
-    enhanceAppFiles: resolve(__dirname, './src/enhanceAppFile.js'),
+    enhanceAppFiles: getEnhanceApp(opts.type),
     globalUIComponents: 'MenuLoader',
 });
