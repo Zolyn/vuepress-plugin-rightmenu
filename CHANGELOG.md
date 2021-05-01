@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0-beta.0](https://github.com/Zolyn/vuepress-plugin-rightmenu/compare/v1.1.0-alpha.7...v1.1.0-beta.0) (2021-05-01)
+
+
+### Features
+
+* use css framework to replace ui framework's grid system ([8da0916](https://github.com/Zolyn/vuepress-plugin-rightmenu/commit/8da0916e55adf23c6ed5e210bab42a47c9202ee5))
+
 ## [1.1.0-alpha.7](https://github.com/Zolyn/vuepress-plugin-rightmenu/compare/v1.1.0-alpha.6...v1.1.0-alpha.7) (2021-05-01)
 
 
