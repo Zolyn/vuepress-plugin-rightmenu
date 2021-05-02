@@ -42,7 +42,14 @@
 </template>
 
 <script>
-const config = require(CONFIG_FILE);
+let config = '';
+
+try {
+    config = require(CONFIG_FILE);
+} catch (e) {
+    console.log('Cannot read custom configuration file. Using default configuration...');
+}
+
 import MenuItem from './MenuItem';
 
 export default {
