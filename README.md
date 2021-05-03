@@ -40,7 +40,7 @@ vuepress-plugin-rightmenu 是一个适用于[Vuepress](https://v1.vuepress.vuejs
 
 ```bash
 # npm
-npm install -D @zolyn/vuepress-plugin-rightmenu
+npm install --save-dev @zolyn/vuepress-plugin-rightmenu
 
 # yarn
 yarn add -D @zolyn/vuepress-plugin-rightmenu
@@ -76,6 +76,14 @@ module.exports = {
 ## 文档
 
 [在这呢](https://blog.zorinchan.icu/docs/vuepress-plugin-rightmenu/)
+
+# Todo
+
+-   [ ] Issue template
+-   [ ] CONTRIBUTING.md
+-   [ ] 全部菜单栏支持图标自定义
+-   [ ] 嗅探函数自定义
+-   [ ] 部分样式自定义
 
 ## 协议
 
