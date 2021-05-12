@@ -26,7 +26,7 @@ vuepress-plugin-rightmenu 是一个适用于[Vuepress](https://v1.vuepress.vuejs
     3. 特定的菜单栏，如针对图片和链接的菜单栏可自定义（标题，点击回调函数）
     4. 常驻菜单栏可自定义（标题，点击回调函数）
 
--   待开发...
+-   Coming soon...
 
 ## 快速开始
 
