@@ -82,3 +82,5 @@ module.exports = {
 ## License
 
 [MIT License](https://mit-license.org/)
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FZolyn%2Fvuepress-plugin-rightmenu.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FZolyn%2Fvuepress-plugin-rightmenu?ref=badge_large)
