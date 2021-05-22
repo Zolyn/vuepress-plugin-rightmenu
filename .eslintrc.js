@@ -2,7 +2,7 @@ module.exports = {
     extends: ['alloy', 'alloy/vue'],
     env: {},
     globals: {
-        CONFIG_FILE: true,
+        ZOLYN_RIGHTMENU_CONFIG: true,
     },
     rules: {
         'vue/component-tags-order': [
