@@ -1,5 +1,4 @@
 <template>
-    <!-- TODO: Refactor components -->
     <v-app id="context-menu">
         <v-menu
             v-model="showMenu"
@@ -13,8 +12,8 @@
             :close-on-click="clickListener"
             :close-on-content-click="clickListener"
         >
-            <v-list>
-                <v-list-item>
+            <v-list :dense="dense">
+                <v-list-item :dense="dense">
                     <div class="pure-g justify-center align-center">
                         <div
                             v-for="(item, index) in iconBar"
@@ -22,19 +21,21 @@
                             :class="`pure-u-1-${iconBar.length}`"
                         >
                             <v-hover v-slot="{ hover }" class="pure-gutter">
-                                <v-icon
-                                    :class="{ 'on-hover': hover }"
-                                    @click="item.handler.call(that)"
-                                    v-text="item.icon"
-                                ></v-icon>
+                                <v-list-item-icon>
+                                    <v-icon
+                                        :class="{ 'on-hover': hover }"
+                                        @click="item.handler.call(that)"
+                                        v-text="item.icon"
+                                    ></v-icon>
+                                </v-list-item-icon>
                             </v-hover>
                         </div>
                     </div>
                 </v-list-item>
                 <v-divider></v-divider>
-                <menu-item :parent="that" :list="itemList" name="itemList"></menu-item>
+                <menu-item :parent="that" :list="itemList" name="itemList" :dense="dense"></menu-item>
                 <v-divider></v-divider>
-                <menu-item :parent="that" :list="stickyActions" name="sticky"></menu-item>
+                <menu-item :parent="that" :list="stickyActions" name="sticky" :dense="dense"></menu-item>
             </v-list>
         </v-menu>
         <input id="clipboard-container" readonly :value="clipboard" />
@@ -45,7 +46,7 @@
 let config = '';
 
 try {
-    config = require(CONFIG_FILE);
+    config = require(ZOLYN_RIGHTMENU_CONFIG);
 } catch (e) {
     console.log('Cannot read custom configuration file. Using default configuration...');
 }
@@ -67,6 +68,8 @@ export default {
             currentImage: '',
             clipboard: '',
             itemList: [],
+            // 插件配置
+            dense: config.dense,
             iconBar: config.iconBar || [
                 {
                     icon: 'mdi-arrow-left',

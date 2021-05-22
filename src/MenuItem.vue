@@ -1,12 +1,16 @@
 <template>
-    <!-- TODO: Refactor components -->
     <v-app id="context-menu-item">
         <div v-for="(item, index) in list" :key="name + index" class="pure-g justify-start align-center">
             <div class="pure-u-1-1">
-                <v-list-item @click="item.handler.call(parent)">
-                    <v-list-item-title>
-                        {{ item.title }}
-                    </v-list-item-title>
+                <v-list-item :dense="dense" @click="item.handler.call(parent)">
+                    <v-list-item-icon v-if="item.icon">
+                        <v-icon v-text="item.icon"></v-icon>
+                    </v-list-item-icon>
+                    <v-list-item-content>
+                        <v-list-item-title>
+                            {{ item.title }}
+                        </v-list-item-title>
+                    </v-list-item-content>
                 </v-list-item>
             </div>
         </div>
@@ -26,6 +30,9 @@ export default {
         },
         parent: {
             required: true,
+        },
+        dense: {
+            type: Boolean,
         },
     },
 };
