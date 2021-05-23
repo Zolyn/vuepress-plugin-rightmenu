@@ -6,6 +6,7 @@
                     <v-list-item :dense="dense" @click="item.handler.call(parent)">
                         <v-icon
                             v-if="item.icon"
+                            :dense="dense"
                             :class="{ 'on-hover': hover, 'pure-gutter': true }"
                             v-text="item.icon"
                         ></v-icon>

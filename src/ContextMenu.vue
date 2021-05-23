@@ -22,6 +22,7 @@
                         >
                             <v-hover v-slot="{ hover }" class="pure-gutter">
                                 <v-icon
+                                    :dense="dense"
                                     :class="{ 'on-hover': hover }"
                                     @click="item.handler.call(that)"
                                     v-text="item.icon"
