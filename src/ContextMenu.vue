@@ -3,7 +3,7 @@
         <v-menu
             v-model="showMenu"
             rounded="lg"
-            transition="slide-x-transition"
+            :transition="`slide-${transition}-transition`"
             min-width="160px"
             offset-y
             absolute
@@ -21,13 +21,11 @@
                             :class="`pure-u-1-${iconBar.length}`"
                         >
                             <v-hover v-slot="{ hover }" class="pure-gutter">
-                                <v-list-item-icon>
-                                    <v-icon
-                                        :class="{ 'on-hover': hover }"
-                                        @click="item.handler.call(that)"
-                                        v-text="item.icon"
-                                    ></v-icon>
-                                </v-list-item-icon>
+                                <v-icon
+                                    :class="{ 'on-hover': hover }"
+                                    @click="item.handler.call(that)"
+                                    v-text="item.icon"
+                                ></v-icon>
                             </v-hover>
                         </div>
                     </div>
@@ -48,7 +46,7 @@ let config = '';
 try {
     config = require(ZOLYN_RIGHTMENU_CONFIG);
 } catch (e) {
-    console.log('Cannot read custom configuration file. Using default configuration...');
+    console.log('WARN: Cannot read custom configuration file. Using default configuration...');
 }
 
 import MenuItem from './MenuItem';
@@ -69,7 +67,8 @@ export default {
             clipboard: '',
             itemList: [],
             // 插件配置
-            dense: config.dense,
+            dense: config.dense || false,
+            transition: config.transition || 'x',
             iconBar: config.iconBar || [
                 {
                     icon: 'mdi-arrow-left',
@@ -163,6 +162,48 @@ export default {
                     },
                 },
             ],
+            sniffingFunctions: config.sniffingFunctions || {
+                img: [
+                    {
+                        fn(e) {
+                            return e[0].currentSrc;
+                        },
+                    },
+                    {
+                        fn(e) {
+                            if (e[0].children.length) {
+                                return e[0].children[0].currentSrc;
+                            }
+                        },
+                    },
+                    {
+                        fn(e) {
+                            let img = '';
+                            for (let i = 0; i < 3; i += 1) {
+                                img = e[i].style['background-image'].split('"')[1];
+                                if (img) {
+                                    break;
+                                }
+                            }
+                            return img;
+                        },
+                    },
+                ],
+                link: [
+                    {
+                        fn(e) {
+                            let link = '';
+                            for (let i = 0; i < 5; i += 1) {
+                                link = e[i].href;
+                                if (link) {
+                                    break;
+                                }
+                            }
+                            return link;
+                        },
+                    },
+                ],
+            },
         };
     },
     mounted() {
@@ -192,51 +233,29 @@ export default {
         getItemList(e) {
             const items = [];
             const elements = e.path;
-            const imgPlans = [
-                {
-                    fn() {
-                        return elements[0].currentSrc;
-                    },
-                },
-                {
-                    fn() {
-                        if (elements[0].children.length) {
-                            return elements[0].children[0].currentSrc;
-                        }
-                    },
-                },
-                {
-                    fn() {
-                        let img = '';
-                        for (let i = 0; i < 3; i += 1) {
-                            img = elements[i].style['background-image'].split('"')[1];
-                            if (img) {
-                                break;
-                            }
-                        }
-                        return img;
-                    },
-                },
-            ];
-            for (const val of imgPlans) {
-                const result = val.fn();
+
+            for (const val of this.sniffingFunctions.img) {
+                const result = val.fn(elements);
                 if (result) {
                     this.currentImage = result;
                     items.push(...this.eventActions.image);
                     break;
                 }
             }
-            for (let i = 0; i < 5; i += 1) {
-                const link = elements[i].href;
-                if (link) {
-                    this.currentLink = link;
+
+            for (const val of this.sniffingFunctions.link) {
+                const result = val.fn(elements);
+                if (result) {
+                    this.currentLink = result;
                     items.push(...this.eventActions.link);
                     break;
                 }
             }
+
             if (!items.length) {
                 items.push(...this.normalActions);
             }
+
             this.itemList = items;
         },
         copy() {
