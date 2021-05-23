@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0-beta.4](https://github.com/Zolyn/vuepress-plugin-rightmenu/compare/v1.1.0-beta.3...v1.1.0-beta.4) (2021-05-23)
+
+
+### Features
+
+* custom transition & sniffing functions ([5bf72e7](https://github.com/Zolyn/vuepress-plugin-rightmenu/commit/5bf72e726af3994ab6796ad434772e7bbc1ccb28))
+
+
+### Styles
+
+* menu contents border ([3e3acd9](https://github.com/Zolyn/vuepress-plugin-rightmenu/commit/3e3acd9e584829f8d8c32aae7dad5001dc132f38))
+
 ## [1.1.0-beta.3](https://github.com/Zolyn/vuepress-plugin-rightmenu/compare/v1.1.0-beta.2...v1.1.0-beta.3) (2021-05-22)
 
 
