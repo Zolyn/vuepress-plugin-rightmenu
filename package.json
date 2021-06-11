@@ -17,7 +17,7 @@
         "lint": "eslint ./src/**/*.ts",
         "format": "prettier --write ./src/**/*.ts",
         "depend": "dpdm ./src/**/*.ts ./src/client/components/scripts/*.ts --warning false",
-        "copy": "cp ./src/client/components/*.vue ./dist/client/components",
+        "copy": "cp ./src/client/components/*.vue ./dist/client/components && cp -r ./src/client/style ./dist/client",
         "build": "yarn clean && yarn lint && yarn format && yarn depend && tsc && tsc -p tsconfig.cjs.json && yarn copy",
         "rel:ma": "standard-version -r major -n",
         "rel:mi": "standard-version -r minor -n",
