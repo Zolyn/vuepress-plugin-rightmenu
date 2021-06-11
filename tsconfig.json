@@ -1,0 +1,13 @@
+{
+    "extends": "./tsconfig.base.json",
+    "compilerOptions": {
+        "module": "ESNext",
+        "outDir": "./dist/client",
+        "tsBuildInfoFile": "./dist/client/buildFile.tsbuildinfo",
+        "paths": {
+            "@typings/*": ["./types/*"],
+            "@client/*": ["./src/client/*"]
+        }
+    },
+    "include": ["./src/client", "./types"]
+}

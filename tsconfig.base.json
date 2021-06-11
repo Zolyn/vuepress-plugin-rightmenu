@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "incremental": true,
+        "declaration": true,
+        "declarationMap": true,
+        "strict": true,
+        "sourceMap": true,
+        "skipLibCheck": true,
+        "baseUrl": ".",
+        "newLine": "lf",
+        "experimentalDecorators": true,
+        "target": "ES6",
+        "moduleResolution": "Node",
+        "noFallthroughCasesInSwitch": true,
+        "esModuleInterop": false,
+        "listEmittedFiles": true
+    }
+}

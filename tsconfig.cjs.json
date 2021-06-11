@@ -1,0 +1,9 @@
+{
+    "extends": "./tsconfig.base.json",
+    "compilerOptions": {
+        "module": "CommonJS",
+        "outDir": "./dist/server",
+        "tsBuildInfoFile": "./dist/server/buildFile.tsbuildinfo"
+    },
+    "include": ["./src/server", "./types"]
+}

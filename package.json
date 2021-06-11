@@ -4,8 +4,21 @@
     "repository": "https://github.com/Zolyn/vuepress-plugin-rightmenu",
     "license": "MIT",
     "author": "Zorin",
-    "main": "index.js",
+    "main": "./dist/server/plugin.js",
+    "files": [
+        "dist",
+        "types",
+        "tsconfig.json",
+        "tsconfig.base.json",
+        "tsconfig.cjs.json"
+    ],
     "scripts": {
+        "clean": "rm -rf ./dist",
+        "lint": "eslint ./src/**/*.ts",
+        "format": "prettier --write ./src/**/*.ts",
+        "depend": "dpdm ./src/**/*.ts ./src/client/components/scripts/*.ts --warning false",
+        "copy": "cp ./src/client/components/*.vue ./dist/client/components",
+        "build": "yarn clean && yarn lint && yarn format && yarn depend && tsc && tsc -p tsconfig.cjs.json && yarn copy",
         "rel:ma": "standard-version -r major -n",
         "rel:mi": "standard-version -r minor -n",
         "rel:pa": "standard-version -r patch -n",
@@ -16,20 +29,27 @@
     },
     "dependencies": {
         "@mdi/font": "^5.9.55",
-        "vuetify": "^2.5.0"
+        "vue": "2.6.12",
+        "vuetify": "^2.5.3"
     },
     "devDependencies": {
         "@commitlint/cli": "12.1.4",
         "@commitlint/config-conventional": "12.1.4",
+        "@mr-hope/vuepress-types": "^1.18.0",
+        "@typescript-eslint/eslint-plugin": "4.26.0",
+        "@typescript-eslint/parser": "4.26.0",
+        "@vue/eslint-config-typescript": "^7.0.0",
         "babel-eslint": "10.1.0",
+        "dpdm": "3.6.1",
         "eslint": "7.27.0",
         "eslint-config-alloy": "3.10.0",
-        "eslint-plugin-vue": "7.9.0",
+        "eslint-plugin-vue": "7.10.0",
         "husky": "6.0.0",
         "lint-staged": "11.0.0",
         "prettier": "2.3.0",
         "sort-package-json": "1.50.0",
         "standard-version": "9.3.0",
+        "typescript": "4.3.2",
         "vue-eslint-parser": "7.6.0"
     }
 }

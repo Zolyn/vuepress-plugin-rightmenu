@@ -1,7 +1,7 @@
-import ContextMenu from './ContextMenu';
+import ContextMenu from '../src/client/components/ContextMenu';
 
 import Vuetify from 'vuetify';
-import './vuetify.modified.min.css';
+import '../src/client/style/vuetify.modified.min.css';
 import '@mdi/font/css/materialdesignicons.min.css';
 
 export default ({ Vue, options }) => {

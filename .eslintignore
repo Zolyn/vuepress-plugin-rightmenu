@@ -1,2 +1,8 @@
-# Node modules
+# Node
 node_modules/
+
+# Build
+dist/
+
+# Types
+types/

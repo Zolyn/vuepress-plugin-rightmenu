@@ -1,5 +1,5 @@
 <template>
-    <v-app id="context-menu-item">
+    <v-app id="contextmenu-item">
         <div v-for="(item, index) in list" :key="name + index" class="pure-g justify-start align-center">
             <div class="pure-u-1-1">
                 <v-hover v-slot="{ hover }">
@@ -21,24 +21,8 @@
 </template>
 
 <script>
-export default {
-    props: {
-        list: {
-            type: Array,
-            required: true,
-        },
-        name: {
-            type: String,
-            required: true,
-        },
-        parent: {
-            required: true,
-        },
-        dense: {
-            type: Boolean,
-        },
-    },
-};
+import { default as MenuItem } from "./scripts/childComponentMixins";
+export default MenuItem;
 </script>
 
 <style scoped></style>

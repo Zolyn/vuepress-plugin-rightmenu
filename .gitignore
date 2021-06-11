@@ -1,11 +1,14 @@
-## IDE / Editor
-.idea
-.vscode
+# IDE
+.idea/
 
-## lock file
-yarn.lock
+# Node
+node_modules/
+
+# Package manager
 package-lock.json
+yarn.lock
 pnpm-lock.yaml
+*.log
 
-## node modules
-node_modules
+# Typescript
+*.tsbuildinfo
