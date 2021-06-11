@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0-beta.6](https://github.com/Zolyn/vuepress-plugin-rightmenu/compare/v1.1.0-beta.5...v1.1.0-beta.6) (2021-06-11)
+
+
+### Tests
+
+* typescript rewritten ([a4d626a](https://github.com/Zolyn/vuepress-plugin-rightmenu/commit/a4d626a2f964e92481c2f31fffc3552951ef6981))
+
 ## [1.1.0-beta.5](https://github.com/Zolyn/vuepress-plugin-rightmenu/compare/v1.1.0-beta.4...v1.1.0-beta.5) (2021-05-23)
 
 
