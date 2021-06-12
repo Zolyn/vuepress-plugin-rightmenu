@@ -3,7 +3,7 @@
         <div v-for="(item, index) in list" :key="name + index" class="pure-g justify-start align-center">
             <div class="pure-u-1-1">
                 <v-hover v-slot="{ hover }">
-                    <v-list-item :dense="dense" @click="item.handler.call(parent)">
+                    <v-list-item :dense="dense" @click="item.handler.call(undefined, parent)">
                         <v-icon
                             v-if="item.icon"
                             :dense="dense"

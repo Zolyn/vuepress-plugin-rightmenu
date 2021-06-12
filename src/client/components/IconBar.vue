@@ -11,7 +11,7 @@
                         <v-icon
                             :dense="dense"
                             :class="{ 'on-hover': hover }"
-                            @click="item.handler.call(parent)"
+                            @click="item.handler.call(undefined, parent)"
                             v-text="item.icon"
                         ></v-icon>
                     </v-hover>
