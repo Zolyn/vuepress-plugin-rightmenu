@@ -1,8 +1,8 @@
 import Vue from 'vue';
-import {NormalActions, RightmenuConfig} from '@typings/config';
-import DefaultConfig from '@client/config';
-import MenuItem from '../MenuItem.vue';
-import IconBar from '../IconBar.vue';
+import {NormalActions, RightmenuConfig} from '../../../types';
+import DefaultConfig from '../config';
+import MenuItem from './MenuItem.vue';
+import IconBar from './IconBar.vue';
 
 interface ComponentData extends Required<RightmenuConfig> {
     that: unknown;
