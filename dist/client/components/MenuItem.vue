@@ -21,7 +21,7 @@
 </template>
 
 <script>
-export { default } from "./childComponentMixins";
+export { default } from './MenuItem';
 </script>
 
 <style scoped></style>

@@ -12,8 +12,8 @@ import(ZOLYN_RIGHTMENU_CONFIG).then(config => {
 });
 const ContextMenu = Vue.extend({
     components: {
-        MenuItem: new MenuItem(),
-        IconBar: new IconBar(),
+        MenuItem,
+        IconBar,
     },
     data() {
         return Object.assign(Object.assign({ that: this, showMenu: false, xPos: 0, yPos: 0, clickListener: false, currentLink: '', currentImage: '', clipboard: '', itemList: [] }, DefaultConfig), rightmenuConfig);

@@ -22,7 +22,7 @@
 </template>
 
 <script>
-export { default } from './childComponentMixins';
+export { default } from './Iconbar';
 </script>
 
 <style scoped>

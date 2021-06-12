@@ -29,8 +29,8 @@ import(ZOLYN_RIGHTMENU_CONFIG).then(config => {
 
 const ContextMenu = Vue.extend({
     components: {
-        MenuItem: new MenuItem(),
-        IconBar: new IconBar(),
+        MenuItem,
+        IconBar,
     },
     data(): ComponentData {
         return {
