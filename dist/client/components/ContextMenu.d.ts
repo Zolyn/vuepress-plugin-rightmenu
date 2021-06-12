@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import { NormalActions, RightmenuConfig } from '@typings/config';
+import { NormalActions, RightmenuConfig } from '../../../types';
 interface ComponentData extends Required<RightmenuConfig> {
     that: unknown;
     showMenu: boolean;

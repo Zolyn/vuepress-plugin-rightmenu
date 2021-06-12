@@ -9,4 +9,5 @@ const Plugin = (opts) => ({
     enhanceAppFiles: path_1.resolve(__dirname, '../client/enhanceApp.js'),
     globalUIComponents: 'ContextMenu',
 });
+module.exports = Plugin;
 //# sourceMappingURL=plugin.js.map

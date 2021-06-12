@@ -25,8 +25,7 @@
 </template>
 
 <script>
-import ContextMenu from "./scripts/ContextMenu";
-export default ContextMenu;
+export { default } from './ContextMenu';
 </script>
 
 <style lang="stylus">

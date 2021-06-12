@@ -10,3 +10,5 @@ const Plugin: PluginFunction<PluginOpts> = (opts) => ({
     enhanceAppFiles: resolve(__dirname, '../client/enhanceApp.js'),
     globalUIComponents: 'ContextMenu',
 });
+
+module.exports = Plugin;

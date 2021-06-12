@@ -1,4 +1,4 @@
-import { RightmenuConfig } from '@typings/config';
+import { RightmenuConfig } from '../../types';
 
 const DefaultConfig: Required<RightmenuConfig> = {
     dense: false,

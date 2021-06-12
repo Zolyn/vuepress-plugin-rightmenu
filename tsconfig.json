@@ -3,11 +3,7 @@
     "compilerOptions": {
         "module": "ESNext",
         "outDir": "./dist/client",
-        "tsBuildInfoFile": "./dist/client/buildFile.tsbuildinfo",
-        "paths": {
-            "@typings/*": ["./types/*"],
-            "@client/*": ["./src/client/*"]
-        }
+        "tsBuildInfoFile": "./dist/client/buildFile.tsbuildinfo"
     },
     "include": ["./src/client", "./types"]
 }

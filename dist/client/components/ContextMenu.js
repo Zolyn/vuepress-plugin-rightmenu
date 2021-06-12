@@ -1,7 +1,7 @@
 import Vue from 'vue';
-import DefaultConfig from '@client/config';
-import MenuItem from '../MenuItem.vue';
-import IconBar from '../IconBar.vue';
+import DefaultConfig from '../config';
+import MenuItem from './MenuItem.vue';
+import IconBar from './IconBar.vue';
 let rightmenuConfig;
 import(ZOLYN_RIGHTMENU_CONFIG).then(config => {
     rightmenuConfig = config;

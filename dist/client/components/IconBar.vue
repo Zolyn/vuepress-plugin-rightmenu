@@ -22,8 +22,7 @@
 </template>
 
 <script>
-import { default as IconBar } from './scripts/childComponentMixins';
-export default IconBar;
+export { default } from './childComponentMixins';
 </script>
 
 <style scoped>

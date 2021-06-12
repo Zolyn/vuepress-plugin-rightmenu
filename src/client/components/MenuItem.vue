@@ -21,8 +21,7 @@
 </template>
 
 <script>
-import { default as MenuItem } from "./scripts/childComponentMixins";
-export default MenuItem;
+export { default } from "./childComponentMixins";
 </script>
 
 <style scoped></style>
