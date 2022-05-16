@@ -32,8 +32,8 @@
         "vuetify": "^2.5.3"
     },
     "devDependencies": {
-        "@commitlint/cli": "12.1.4",
-        "@commitlint/config-conventional": "12.1.4",
+        "@commitlint/cli": "16.3.0",
+        "@commitlint/config-conventional": "16.2.4",
         "@mr-hope/vuepress-types": "1.18.0",
         "@typescript-eslint/eslint-plugin": "4.26.1",
         "@typescript-eslint/parser": "4.26.1",
